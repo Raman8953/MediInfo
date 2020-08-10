@@ -1,0 +1,59 @@
+<section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
+        <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form" >
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">LOGIN</h2>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" class="form-control" formControlName="email" required email>
+          <small *ngIf="email.invalid && (profileForm.controls['email'].dirty || profileForm.controls['email'].touched)" class="text-danger">
+            <small *ngIf="email.errors.required" class="text-danger">Email required</small>
+            <small *ngIf="email.errors.email" class="text-danger">Email is be Valid</small>
+          </small>  
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Password" type="password" class="form-control" formControlName="password" required minlength="8">
+          <small *ngIf="password.invalid && (profileForm.controls['password'].dirty || profileForm.controls['password'].touched)" class="text-danger">
+            <small *ngIf="password.errors.required" class="text-danger">Password required</small>
+            <small *ngIf="password.errors.minlength" class="text-danger">Password must be strong</small>
+          </small>
+      </div>
+      <div class="form-group">
+        <div class="form-group" style="text-align: center;">
+          <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+          <input type="submit" class="btn btn-info btn-md" value="SIGN IN">
+      </div>
+      </div>
+      <label class="text-info" style="float: left;">
+        <span style="float: left;" onclick="frgpass()" data-toggle="modal" data-target="#myModal">Forgot Password !</span>
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+              <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="form-group">
+                  <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" class="form-control" formControlName="email" required email>
+                  <small *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                    <small *ngIf="email.errors.required" class="text-danger">Email required</small>
+                    <small *ngIf="email.errors.email" class="text-danger">Email is be Valid</small>
+                  </small>  
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="frgpass()">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                </div>
+            </div>
+          </div>
+        </div>
+        <div id="register-link" style="float: right; margin-left: 80px;">
+          <a routerLink='/register' class="text-info">SIGN UP here</a>
+        </div>
+      </label>
+    </form>
+      </div>
+    </div>
+  </section>

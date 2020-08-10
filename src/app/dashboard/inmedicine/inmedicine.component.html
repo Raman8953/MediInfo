@@ -1,0 +1,136 @@
+<app-header></app-header>
+<div *ngIf="!param" id="myDIV" class="wrapper" >
+<section class="text-gray-700 body-font relative">
+    <div class="container  flex sm:flex-no-wrap flex-wrap">
+      <div class="lg:w-2/3 md:w-1/2  flex flex-col md:ml-auto p-5 md:mt-0 ml-auto"   >
+        <img alt="content" class="object-cover object-center h-full w-full" src="../../../assets/back.png">
+      </div>
+      <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full p-5 md:py-8 mt-8 md:mt-0 ml-auto">
+        <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Enter Medicine Reports</h2>
+        <form [formGroup]="medicineForm" (ngSubmit)="onSubmit()">
+          <div class="form-wrapper py-2">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" class="form-control" formControlName="did" [(ngModel)]="dids" required minlength="3">
+            <i class="zmdi zmdi-pImage"  *ngIf="did.invalid && (did.dirty || did.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="did.errors.required">Doctor Id is required</small>
+              <small class="text-danger" *ngIf="did.errors.minlength">
+              Doctor Id must be at least 3 characters long.
+              </small></i>
+          </div>
+          <div class="form-wrapper py-2">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Name" class="form-control" formControlName="p_name" required minlength="3">
+            <i class="zmdi zmdi-pImage"  *ngIf="p_name.invalid && (p_name.dirty || p_name.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="p_name.errors.required">Patient Name is required</small>
+              <small class="text-danger" *ngIf="p_name.errors.minlength">
+              Parient Name must be at least 3 characters long.
+              </small></i>
+          </div>
+          <div class="form-wrapper py-2">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Email" class="form-control" formControlName="email" required email>
+            <i class="zmdi zmdi-pImage"  *ngIf="email.invalid && (email.dirty || email.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+              <small class="text-danger" *ngIf="email.errors.email">
+              Email must be valid.
+              </small></i>
+          </div>
+          <div class="form-wrapper py-2">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Deases" class="form-control" formControlName="deases" required minlength="3">
+            <i class="zmdi zmdi-pImage"  *ngIf="deases.invalid && (deases.dirty || deases.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="deases.errors.required">Patient deases is required</small>
+              <small class="text-danger" *ngIf="deases.errors.minlength">
+              Parient deases must be valid.
+              </small></i>
+          </div>
+          <div class="form-wrapper">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Age" class="form-control" formControlName="age" required minlength="1">
+            <i class="zmdi zmdi-pImage"  *ngIf="age.invalid && (age.dirty || age.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="age.errors.required">Patient age is required</small>
+            </i>
+          </div>
+          <div class="form-wrapper py-2">
+            <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Gender" class="form-control" formControlName="gender" required minlength="3">
+            <i class="zmdi zmdi-pImage"  *ngIf="gender.invalid && (gender.dirty || gender.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="gender.errors.required">Patient Gender is required</small></i>
+          </div>
+          <div class="form-wrapper py-2">
+            <textarea class="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-teal-500 text-base px-4 py-2 mb-4 resize-none" type="text" placeholder="Doctor Medicine Prescription" class="form-control" formControlName="medicine" required minlength="3"></textarea>
+            <i class="zmdi zmdi-pImage"  *ngIf="medicine.invalid && (medicine.dirty || medicine.touched) " [ngClass] = "'error'">
+              <small class="text-danger" *ngIf="medicine.errors.required">Medicine Name is required</small>
+              <small class="text-danger" *ngIf="medicine.errors.minlength">
+              Medicine Name must be at least 3 characters long.
+              </small></i>
+            </div><br><br>
+        <input type="submit" class="text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded text-lg " value="SUBMIT">
+        <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  </div>
+  <div *ngIf="param" id="myDIV" class="wrapper" >
+    <section class="text-gray-700 body-font relative">
+      <div class="container  flex sm:flex-no-wrap flex-wrap">
+        <div class="lg:w-2/3 md:w-1/2  flex flex-col md:ml-auto p-5 md:mt-0 ml-auto"   >
+          <img alt="content" class="object-cover object-center h-full w-full" src="../../../assets/back.png">
+        </div>
+        <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full p-5 md:py-8 mt-8 md:mt-0 ml-auto">
+          <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Update Medicine Reports</h2>
+          <form [formGroup]="medicineForm" (ngSubmit)="onSubmits()">
+            <div class="form-wrapper py-2">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" class="form-control" formControlName="did" [(ngModel)]="dids" required minlength="3">
+              <i class="zmdi zmdi-pImage"  *ngIf="did.invalid && (did.dirty || did.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="did.errors.required">Doctor Id is required</small>
+                <small class="text-danger" *ngIf="did.errors.minlength">
+                Doctor Id must be at least 3 characters long.
+                </small></i>
+            </div>
+            <div class="form-wrapper py-2">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Name" class="form-control" formControlName="p_name" [(ngModel)]="data.p_name" required minlength="3">
+              <i class="zmdi zmdi-pImage"  *ngIf="p_name.invalid && (p_name.dirty || p_name.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="p_name.errors.required">Patient Name is required</small>
+                <small class="text-danger" *ngIf="p_name.errors.minlength">
+                Parient Name must be at least 3 characters long.
+                </small></i>
+            </div>
+            <div class="form-wrapper py-2">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Email" class="form-control" formControlName="email" [(ngModel)]="data.email" required email>
+              <i class="zmdi zmdi-pImage"  *ngIf="email.invalid && (email.dirty || email.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+                <small class="text-danger" *ngIf="email.errors.email">
+                Email must be valid.
+                </small></i>
+            </div>
+            <div class="form-wrapper py-2">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Deases" class="form-control" formControlName="deases" [(ngModel)]="data.deases" required minlength="3">
+              <i class="zmdi zmdi-pImage"  *ngIf="deases.invalid && (deases.dirty || deases.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="deases.errors.required">Patient deases is required</small>
+                <small class="text-danger" *ngIf="deases.errors.minlength">
+                Parient deases must be valid.
+                </small></i>
+            </div>
+            <div class="form-wrapper">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Age" class="form-control" formControlName="age" [(ngModel)]="data.age" required minlength="1">
+              <i class="zmdi zmdi-pImage"  *ngIf="age.invalid && (age.dirty || age.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="age.errors.required">Patient age is required</small>
+              </i>
+            </div>
+            <div class="form-wrapper py-2">
+              <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-teal-500 text-base px-4 py-2 mb-4" type="text" placeholder="Patient Gender" class="form-control" formControlName="gender" [(ngModel)]="data.gender" required minlength="3">
+              <i class="zmdi zmdi-pImage"  *ngIf="gender.invalid && (gender.dirty || gender.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="gender.errors.required">Patient Gender is required</small></i>
+            </div>
+            <div class="form-wrapper py-2">
+              <textarea class="bg-white rounded border border-gray-400 focus:outline-none h-32 focus:border-teal-500 text-base px-4 py-2 mb-4 resize-none" type="text" placeholder="Doctor Medicine Prescription" class="form-control" formControlName="medicine" [(ngModel)]="data.medicine" required minlength="3"></textarea>
+              <i class="zmdi zmdi-pImage"  *ngIf="medicine.invalid && (medicine.dirty || medicine.touched) " [ngClass] = "'error'">
+                <small class="text-danger" *ngIf="medicine.errors.required">Patient Name is required</small>
+                <small class="text-danger" *ngIf="medicine.errors.minlength">
+                Parient Name must be at least 3 characters long.
+                </small></i>
+              </div><br><br>
+          <input type="submit" class="text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-teal-600 rounded text-lg " value="SUBMIT">
+          <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>

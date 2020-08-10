@@ -1,0 +1,28 @@
+<header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">MEDITRACK</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class=" hover:text-gray-900 px-4" routerLink="/dashboard"><span class="material-icons">home</span></a>
+        <a class=" hover:text-gray-900 px-4 block whitespace-no-wrap" class="flex items-center md:mb-0" routerLink="/dashboard/vuser"><img src="../../../assets/user.png" alt="" class="w-5 h-5 ml-3 mx-3 rounded-full" viewBox="0 0 24 24">VIEW CUSTOMER</a>
+        <div class="p-10 " class=" hover:text-gray-900">
+          <div class="dropdown inline-block relative">
+            <button class="text-gray-700  py-2 px-4 rounded inline-flex items-center">
+              <span class="hover:text-gray-900">MEDICINE</span>
+            </button>
+            <ul class="dropdown-menu absolute hidden text-gray-700">
+              <li class=""><a class="rounded-t py-2 px-4 block whitespace-no-wrap" routerLink="/dashboard/vmedicine">VIEW MEDICINE</a></li>
+              <li class=""><a class=" py-2 px-4 block whitespace-no-wrap" routerLink="/dashboard/inmedicine">INSERT MEDICINE</a></li>
+            </ul>
+          </div>        
+        </div>
+        <a class="rounded-t  py-2 px-4 block whitespace-no-wrap" routerLink="/dashboard/user">My Profile</a>
+        <a class=" hover:text-gray-900 px-4" routerLink="/dashboard/feedback">FEDBACK</a>
+        <a class=" hover:text-gray-900 px-4" (click)="logout()">LOGOUT</a>
+      </nav>
+    </div>
+  </header>

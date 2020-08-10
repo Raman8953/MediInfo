@@ -1,0 +1,95 @@
+<div  *ngIf="!param" id="myDIV" class="wrapper" >
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
+        <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
+        <div class="form-group">
+          <input type="file" class="form-control" formControlName="uimg" (change)="onFileSelect($event)" />
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4"  placeholder="First Name" type="text" class="form-control" formControlName="f_name" required minlength="3">
+          <small *ngIf="f_name.invalid && (profileForm.controls['f_name'].dirty || profileForm.controls['f_name'].touched)" class="text-danger">
+            <small *ngIf="f_name.errors.required" class="text-danger mx-auto">First Name required</small>
+            <small *ngIf="f_name.errors.minlength" class="text-danger">First Name should contain minimum three character</small>
+          </small>
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Last Name" type="text" class="form-control" formControlName="l_name"  required minlength="2">
+          <small *ngIf="l_name.invalid && (profileForm.controls['l_name'].dirty || profileForm.controls['l_name'].touched)" class="text-danger">
+            <small *ngIf="l_name.errors.required" class="text-danger">Last Name required</small>
+            <small *ngIf="l_name.errors.minlength" class="text-danger">Last Name should contain minimum two character</small>
+          </small> 
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" class="form-control" formControlName="email" required email>
+          <small *ngIf="email.invalid && (profileForm.controls['email'].dirty || profileForm.controls['email'].touched)" class="text-danger">
+            <small *ngIf="email.errors.required" class="text-danger">Email required</small>
+            <small *ngIf="email.errors.email" class="text-danger">Email is be Valid</small>
+          </small>  
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Doctor ID" type="text" class="form-control" formControlName="did" required minlength="3">
+          <small *ngIf="did.invalid && (profileForm.controls['did'].dirty || profileForm.controls['did'].touched)" class="text-danger">
+            <small *ngIf="did.errors.required" class="text-danger">Doctor Id required</small>
+            <small *ngIf="did.errors.minlength" class="text-danger">Doctor Id is be Valid</small>
+          </small>  
+        </div>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Password" type="password" class="form-control" formControlName="password" required minlength="8">
+          <small *ngIf="password.invalid && (profileForm.controls['password'].dirty || profileForm.controls['password'].touched)" class="text-danger">
+            <small *ngIf="password.errors.required" class="text-danger">Password required</small>
+            <small *ngIf="password.errors.minlength" class="text-danger">Password must be strong</small>
+          </small>
+      </div>
+      <div class="form-group">
+        <div class="form-group" style="text-align: center;">
+          <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+          <input type="submit" class="btn btn-info btn-md" value="REGISTER">
+      </div>
+      </div>
+    </form>
+        <div id="register-link" class="text-right">
+          <a routerLink='/login' class="text-info">Allready Register! Sign In Here</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div  *ngIf="param" id="myDIV" class="wrapper" >
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
+        <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <form [formGroup]="otpForm" (ngSubmit)="onSubmitotp()" class="form" >
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Otp Verified</h2>
+        <div class="form-group">
+          <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" class="form-control" formControlName="emails" [(ngModel)]="emai" required email>
+          <small *ngIf="emails.invalid && (otpForm.controls['emails'].dirty || otpForm.controls['emails'].touched)" class="text-danger">
+            <small *ngIf="emails.errors.required" class="text-danger">Email required</small>
+            <small *ngIf="emails.errors.email" class="text-danger">Email is be Valid</small>
+          </small>  
+        </div>
+      <div class="form-group">
+        <input class="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="OTP" type="text" class="form-control" formControlName="otp" required minlength="6">
+        <small *ngIf="otp.invalid && (otpForm.controls['otp'].dirty || otpForm.controls['otp'].touched)" class="text-danger">
+          <small *ngIf="otp.errors.required" class="text-danger"> OTP required</small>
+        </small>
+    </div>
+      <div class="form-group">
+        <div class="form-group" style="text-align: center;">
+          <input type="submit" class="btn btn-info btn-md" value="submit">
+      </div>
+      </div>
+    </form>
+      </div>
+    </div>
+  </section>
+</div>

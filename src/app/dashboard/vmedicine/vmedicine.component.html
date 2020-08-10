@@ -1,0 +1,53 @@
+<app-header></app-header>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="card" style="margin-top:0px;">
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <table class="table table-bordered table-responsive-md table-striped text-center" style="margin-top:20px">
+          <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">PATIENT NAME</th>
+              <th class="text-center">EMAIL</th>
+              <th class="text-center">DEASEAS</th>
+              <th class="text-center">AGE</th>
+              <th class="text-center">GENDER</th>
+              <th class="text-center">MEDICINE</th>
+              <th class="text-center">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let medicine of data">
+              <td class="pt-3-half" contenteditable="true">{{medicine._id}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.p_name}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.email}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.deases}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.age}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.gender}}</td>
+              <td class="pt-3-half" contenteditable="true">{{medicine.medicine}}</td>
+              <td>
+                <a routerLink="/dashboard/umedicine/{{medicine._id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <span class="table-remove" ><a data-toggle="modal" routerLink="/dashboard/vmedicine/{{medicine._id}}" data-target="#exampleModal" ><i class="material-icons">&#xE872;</i></a></span>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are you Sure you want to Delete this User?</h5>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delMedicine()"> YES </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+<app-footer></app-footer>

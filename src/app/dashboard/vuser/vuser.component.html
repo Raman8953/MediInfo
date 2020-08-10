@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="card" style="margin-top:0px;">
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <table class="table table-bordered table-responsive-md table-striped text-center" style="margin-top:20px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">FIRST NAME</th>
+                            <th class="text-center">LAST NAME</th>
+                            <th class="text-center">EMAIL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of data">
+                            <td class="pt-3-half" contenteditable="true">{{user._id}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{user.f_name}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{user.l_name}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{user.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,17 @@
+<header class="text-gray-700 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">MEDIINFO</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class=" hover:text-gray-900 px-4" routerLink="/adashboard"><span class="material-icons">home</span></a>
+        <a class=" hover:text-gray-900 px-4 block whitespace-no-wrap" class="flex items-center md:mb-0" routerLink="/adashboard/medicine"><img src="../../../assets/medicine.png"  class="w-5 h-5 ml-3 mx-3 rounded-full" viewBox="0 0 24 24">VIEW MEDICINE</a>
+        <a class="rounded-t px-4 block whitespace-no-wrap" routerLink="/adashboard/{{data._id}}">MY PROFILE</a>
+        <a class=" hover:text-gray-900 px-4" routerLink="/adashboard/feedback">FEDBACK</a>
+        <a class=" hover:text-gray-900 px-4 block whitespace-no-wrap" class="flex items-center md:mb-0" (click)="logout()"><img src="../../../assets/logout.png"  class="w-5 h-5 ml-3 mx-3 rounded-full" viewBox="0 0 24 24">LOGOUT</a>
+      </nav>
+    </div>
+  </header>
